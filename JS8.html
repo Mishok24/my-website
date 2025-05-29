@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монобанк</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to left, #202020,#000);
+            font-family: Arial, sans-serif;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url(https://c4.wallpaperflare.com/wallpaper/175/254/356/2560x1440-px-green-light-neon-wallpaper-preview.jpg);
+            background-size: 100%;
+        }
+
+        .container {
+            background-image: url(https://images2.alphacoders.com/131/1318485.png);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px #12ff00;
+            text-align: center;
+            color: aliceblue;
+            text-shadow: 0 0 5px #00ff2c;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 30%;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 0 25px #12ff00;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 25px;
+            font-size: 16px;
+            font-family: cursive;
+            border-radius: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #39ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00d735;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Скільки грошей ви хочете зняти?</h2>
+        <input type="number" id="moneyInput" placeholder="Введіть суму">
+        <button onclick="withdrawMoney()">Зняти</button>
+        <div class="output" id="result"></div>
+    </div>
+
+    <script>
+        function withdrawMoney() {
+            let money = +document.getElementById('moneyInput').value;
+            let s = money % 50;
+            let b = money - s;
+            let result = document.getElementById('result');
+
+            if (money < 50 || money > 3000) {
+                result.textContent = "Ви не попали в діапазон (50 - 3000 грн) тож я заберу всі ці гроші😈";
+            }
+            else if (money > 50 || money < 3000) {
+                if (money % 50 === 0) {
+                    result.textContent = "Ви маєте " + money + " грн";
+                } else {
+                    result.textContent = "Тримай " + b + " грн, а " + s + " грн я забрав, бо в мене нема таких купюр";
+                }
+            } else {
+                result.textContent = "не то";
+            }
+        }
+    </script>
+</body>
+</html>

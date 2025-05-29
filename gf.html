@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Табл</title>
+    <style>
+        body {
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            margin: 0;
+            background-image: url(https://wallpapercave.com/wp/wp2921780.jpg);
+            background-size: cover;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        #gg1 {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-sizing: border-box;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #aa {
+            font-family: cursive;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 20px auto;
+            display: block;
+            border: none;
+        }
+
+        #f {
+            font-weight: bold;
+            color: white;
+            white-space: pre-line;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Введи число для множення</h2>
+    <input type="number" id="gg1"/>
+    <button id="aa" onclick="functia()">Показати</button>
+    <div id="f"></div>
+
+    <script>
+    function functia() {
+      let c = parseInt(document.getElementById("gg1").value);
+      let d = document.getElementById("f");
+
+      if (isNaN(c)) {
+        d.textContent = "Ну введи ж число...";
+        return;
+      }
+
+      let e = "";
+      for (let i = 1; i <= 10; i++) {
+        e += `${c} * ${i} = ${c * i}\n`;
+      }
+
+      d.textContent = e;
+    }
+    </script>
+</body>
+</html>

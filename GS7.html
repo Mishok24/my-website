@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>космос</title>
+    <style>
+        body {
+            color:aliceblue;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url(https://i.pinimg.com/originals/ca/4d/23/ca4d2391455ade48053c0b6861842574.gif);
+
+        }
+
+        .container {
+            background: linear-gradient(to left, #00000A,#090979,#00D4FF);
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+            box-shadow: 0 0 20px #00000A;
+            text-shadow: 0 0 5px #FF00FF;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+
+        button {
+            font-family: cursive;
+            margin-top: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>В якому році відбулась перша висадка на місяць?</h2>
+        <input type="number" id="spaceYearInput" placeholder="Введіть рік">
+        <button onclick="checkAnswer()">Перевірити</button>
+        <div class="output" id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            let spaceYear = document.getElementById('spaceYearInput').value;
+            let result = document.getElementById('result');
+
+            if (spaceYear === '') {
+                result.textContent = 'Ви нічого не ввели!';
+                return;
+            }
+
+            spaceYear = parseInt(spaceYear);
+
+            if (isNaN(spaceYear)) {
+                result.textContent = 'Це не число!';
+            }
+            else if (spaceYear < 1000) {
+                result.textContent = 'Тоді ще динозаври ходили!';
+            }
+            else if (spaceYear < 1500) {
+                result.textContent = 'Холодно, більше!';
+            }
+            else if (spaceYear === 1969) {
+                result.textContent = 'Так, Ваша відповідь правильна!';
+            }
+            else if (spaceYear > 1969 && spaceYear < 2000) {
+                result.textContent = 'Дуже тепло, але менше!';
+            }
+            else if (spaceYear > 1950 && spaceYear < 1969) {
+                result.textContent = 'Дуже тепло, але більше!';
+            }
+            else if (spaceYear > 1969 && spaceYear < 2025) {
+                result.textContent = 'Тепло, але трохи менше!';
+            }
+            else if (spaceYear > 1900 && spaceYear < 1969) {
+                result.textContent = 'Тепло, але трохи більше!';
+            }
+            else if (spaceYear > 2025) {
+                result.textContent = 'Ти що, з майбутнього?!';
+            }
+            else {
+                result.textContent = 'Не правильно!';
+            }
+        }
+    </script>
+</body>
+</html>

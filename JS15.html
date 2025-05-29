@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>supergeroi</title>
+    <style>
+        body {
+            font-family: cursive;
+            font-size: 70px;
+            background-color: #111;
+            color: white;
+            text-align: center;
+            border-color: #111;
+            border-width: 10px;
+        }
+
+        .hero-line {
+            padding: 100px;
+            margin: 20px auto;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        input, button {
+            font-size: 30px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            border: none;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #ffffff33;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="count">Скільки компліментів ти хочеш?</label><br>
+        <input type="number" id="count" placeholder="Введи число">
+        <button onclick="generate()">Показати</button>
+    </div>
+
+    <script>
+        let compliments = [
+            "wonderful", "cozy", "chill", "laid-back", "kind", "friendly", "brave",
+            "funny", "charming", "generous", "helpful", "respectful", "strong",
+            "reliable", "supportive"
+        ]
+        let animal = [
+            "Halk", "Iron Man", "Captain America", "Thor", "Black Panther",
+            "Aquaman", "Batgirl", "Batman", "Doctor Strange", "Superman", "Spider-Man",
+            "Deadpool", "The Flash"
+        ]
+        let Backgrounds = {
+            "Spider-Man": "url('https://wallpapers.com/images/hd/miles-morales-background-j75mb4xx68x2kem5.jpg')",
+            "Iron Man": "url('https://wallpapers-clan.com/wp-content/uploads/2024/12/iron-man-cartoon-skyline-desktop-wallpaper-preview.jpg')",
+            "Batman": "url('https://wallpapers.com/images/hd/batman-laptop-hqi0j2si6kahmmmh.jpg')",
+            "Deadpool": "url('https://www.hdwallpapers.in/download/animation_of_deadpool_in_red_background_hd_deadpool-HD.jpg')",
+            "Doctor Strange": "url('https://wallpapersok.com/images/hd/doctor-strange-power-5wj6u97w6yyx7fdk.jpg')",
+            "Superman": "url('https://wallpapers.com/images/featured/superman-background-5ic61tc5acqpkqom.jpg')",
+            "The Flash": "url('https://images7.alphacoders.com/874/thumb-1920-874853.jpg')",
+            "Thor": "url('https://wallpapers-clan.com/wp-content/uploads/2024/07/%D0%B5hor-marvel-superhero-desktop-wallpaper-preview.jpg')",
+            "Aquaman": "url('https://wallpapercave.com/wp/wp7328010.jpg')",
+            "Black Panther": "url('https://a-static.besthdwallpaper.com/wakanda-forever-black-panther-wallpaper-2048x768-122957_85.jpg')",
+            "Captain America": "url('https://wallpapers-clan.com/wp-content/uploads/2024/05/captain-america-with-shield-blue-marvel-desktop-wallpaper-preview.jpg')",
+            "Batgirl": "url('https://images.wallpapersden.com/image/download/batgirl-4k-digital-paint-art_bWloaGaUmZqaraWkpJRobWllrWdma2U.jpg')",
+            "Halk": "url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBJLCaFHTarvxE5XmM6-PGbRtMJFWcEIbtmdK4awivGYUeVr5SF69-ln6XS6X6cLmzu5GiCAlv81uByS2G5XmMmYuIaA3IRQNF7mA00IqopLF1M9ePKsOwGl65PKnIl3hFHKorFY757QA2/w2880-h1800-c/the-hulk-uhdpaper.com-4K-109.jpg')"
+        }
+
+        function generate() {
+            let n = +document.getElementById('count').value;
+            document.body.innerHTML = "";
+
+            for (let i = 1; i <= n; i++) {
+                let animalrandom = Math.floor(Math.random() * animal.length);
+                let complimentsrandom = Math.floor(Math.random() * compliments.length);
+                let hero = animal[animalrandom];
+                let bg = Backgrounds[hero] || "none";
+
+                let div = document.createElement('div');
+                div.className = "hero-line";
+                div.style.backgroundImage = bg;
+                div.innerHTML = `You are so ${compliments[complimentsrandom]} like ${hero}`;
+                document.body.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>

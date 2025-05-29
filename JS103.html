@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Символи з юнікоду</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .gg1 {
+            font-size: 24px;
+
+            padding: 10px;
+            width: 32%;
+            border-radius: 10px;
+            border: none;
+            height: 2vw;
+        }
+
+        .gg2 {
+         height: 3vw;
+            width: 32%;
+            font-size: 20px;
+            padding: 10px;
+
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #222;
+            color: white;
+            border: none;
+
+        }
+
+        .gg3 {
+            margin-top: 30px;
+            font-size: 50px;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+
+    <input class="gg1" type="number" id="min" placeholder="Введи мінімальне значення",>
+    <input class="gg1" type="number" id="max" placeholder="Введи максимальне значення">
+    <button class="gg2" onclick="show()">Показати символи</button>
+
+    <div class="gg3" id="output"></div>
+
+    <script> 
+        function show() {
+            let a = parseInt(document.getElementById('min').value);
+            let b = parseInt(document.getElementById('max').value);
+            let out = document.getElementById('output');
+
+            if (isNaN(a) || isNaN(b) || a > b) {
+                out.textContent = 'Введи правильні числа!';
+                return;
+            }
+
+            let s = '';
+            for (let i = a; i <= b; i++) {
+                s += i + ' = ' + '&#' + i + ';' + "<br>";
+            }
+
+            out.innerHTML = s;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перевірка віку</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: url("https://media.gettyimages.com/id/1350901820/video/4k-futuristic-neon-ultraviolet-fluorescent-light-tunnel-loopable-animation-black-background.jpg?s=640x640&k=20&c=CUG8p5FgXdIe2XUhbUrymw5HPOdIep0j1cb1khHXGRM=") center/cover no-repeat;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 1s ease;
+        }
+
+        .container {
+            background: linear-gradient(to right, #00000A, #000 );
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px #f500ff;
+            text-align: center;
+            width: 350px;
+            text-shadow: 0 0 5px #FF00FF;
+            color: white;
+            transition: opacity 0.8s ease;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 15px 0;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            box-shadow: 0 0 10px #f500ff;
+        }
+
+        button {
+            background: #c600ff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-family: cursive;
+            cursor: pointer;
+            box-shadow: 0 0 10px #ff00fa;
+            margin-top: 10px;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .welcome {
+            display: none;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            text-shadow: 0 0 10px #00ffea;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="formBlock">
+        <div style="background: url('https://w7.pngwing.com/pngs/496/889/png-transparent-bodyguard-security-guard-security-company-security-guard-police-officer-microphone-necktie-thumbnail.png' );">
+
+        </div>
+        <h2 id="title">Як тебе звати?</h2>
+        <input type="text" id="inputField" placeholder="Введи ім’я" />
+        <button onclick="nextStep()">Далі</button>
+        <div class="output" id="result"></div>
+    </div>
+
+    <div class="welcome" id="welcomeMessage">🎉 Вітаю , що пройшли!</div>
+
+    <script>
+        let step = 0;
+        let userName = "";
+        let userAge = 0;
+
+        function nextStep() {
+            const input = document.getElementById("inputField");
+            const result = document.getElementById("result");
+            const title = document.getElementById("title");
+            const container = document.getElementById("formBlock");
+            const welcome = document.getElementById("welcomeMessage");
+
+            if (step === 0) {
+                if (input.value.trim() === "") {
+                    result.textContent = "Введи своє ім’я!";
+                    return;
+                }
+                userName = input.value.trim();
+                title.textContent = `Привіт, ${userName}! Скільки тобі років?`;
+                input.type = "number";
+                input.value = "";
+                input.placeholder = "Вік";
+                result.textContent = "";
+                step++;
+            }
+            else if (step === 1) {
+                const age = +input.value;
+                if (isNaN(age) || age < 1) {
+                    result.textContent = "Некоректний вік!";
+                    return;
+                }
+                userAge = age;
+                if (userAge < 18 || userAge > 100) {
+                    result.textContent = "Вибач, ти не підходиш по віку.";
+                } else {
+                    // приховати форму
+                    container.style.opacity = "0";
+                    setTimeout(() => {
+                        container.style.display = "none";
+                        welcome.style.display = "block";
+                        // змінити фон
+                        document.body.style.background = 'url("https://i.makeagif.com/media/4-01-2016/JS_dTA.gif") center/cover no-repeat';
+                    }, 800);
+                }
+            }
+        }
+    </script>
+</body>
+</html>

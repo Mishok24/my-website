@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оцінка</title>
+    <style>
+        body {
+            color: aliceblue;
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            margin: 0;
+            background-image: url(https://i.pinimg.com/originals/69/2b/32/692b327365d1e541cfbd8f94fb6742a8.gif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 15px;
+        }
+
+        button {
+            font-family: cursive;
+            margin-top: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Яку оцінку ти отримав сьогодні?</h2>
+        <input type="number" id="gradeInput" placeholder="Введи оцінку від 1 до 12">
+        <button onclick="evaluateGrade()">Оцінити</button>
+        <div class="output" id="result"></div>
+    </div>
+
+    <script>
+        function evaluateGrade() {
+            let grade = +document.getElementById('gradeInput').value;
+            let result = document.getElementById('result');
+
+            switch (grade) {
+                case 1:
+                case 2:
+                case 3:
+                    result.textContent = "Це жах ";
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    result.textContent = "Могло бути краще";
+                    break;
+                case 10:
+                case 11:
+                case 12:
+                    result.textContent = "Неперевершено";
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                    result.textContent = "Гарно ";
+                    break;
+                default:
+                    result.textContent = "Не то";
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

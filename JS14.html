@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>smile</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: 2vw;
+            font-family: "Segoe UI", sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            color: white;
+            margin: 0;
+            padding-top: 10vh;
+            min-height: 100vh;
+        }
+
+        input, button {
+            font-size: 1.5vw;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        button {
+            font-size: 1.5vw;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            background-color: #ffffff33;
+            color: white;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <label for="count">Скільки хочеш смайликів?</label><br>
+        <input type="number" id="count" placeholder="Введи число">
+        <button onclick="generate()">Показати</button>
+    </div>
+
+    <script>
+        function generate() {
+            let n = +document.getElementById('count').value;
+            let min = 128519;
+            let max = 128600;
+            let g = "&#" + Math.round(min + Math.random() * (max - min)) + ";";
+
+            document.write('<body style="background: linear-gradient(to right, #667eea, #764ba2); text-align:center; font-size:2vw; font-family:cursive; line-height:0.55;">');
+
+            for (let i = 1; i <= n; i++) {
+                document.write('<div class="emoji">' + g + '</div><br>');
+                g = g + "&#" + Math.round(min + Math.random() * (max - min)) + ";";
+            }
+
+            document.write('</body>');
+        }
+    </script>
+
+</body>
+</html>
