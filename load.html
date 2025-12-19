@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Preloader</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        canvas {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="preloader" width="150" height="150"></canvas>
+
+    <script>
+const canvas = document.getElementById("preloader");
+const ctx = canvas.getContext("2d");
+
+const w = canvas.width;
+const h = canvas.height;
+
+const cx = w / 2;
+const cy = h / 2;
+const radius = 58;
+
+let angle = 0;
+
+function draw() {
+    ctx.clearRect(0, 0, w, h);
+
+    // background ring
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = "rgba(255,255,255,0.08)";
+    ctx.lineWidth = 11;
+    ctx.stroke();
+
+    // rotating arc (gradient)
+    const gradient = ctx.createLinearGradient(0, 0, w, h);
+    gradient.addColorStop(0, "#000000");
+    gradient.addColorStop(1, "#ffffff");
+
+    ctx.beginPath();
+    ctx.arc(
+        cx,
+        cy,
+        radius,
+        angle,
+        angle + Math.PI * 0.7
+    );
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 14;
+    ctx.lineCap = "round";
+    ctx.shadowBlur = 12;
+    ctx.shadowColor = "#000000";
+    ctx.stroke();
+
+    ctx.shadowBlur = 0;
+
+    angle += 0.04;
+    requestAnimationFrame(draw);
+}
+
+draw();
+    </script>
+
+</body>
+</html>

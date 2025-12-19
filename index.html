@@ -1,0 +1,266 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <title>home</title>
+    <style type="text/css">
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            color: #e0e0e0;
+            background-image: url('https://i.pinimg.com/originals/7d/2a/9f/7d2a9fca264faa93561f72b5fc885fec.gif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            animation: fadeIn 2s ease-in;
+        }
+
+        * {
+            margin: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 10px;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        .gg1 {
+            width: 22%;
+            float: left;
+            height: 1000px;
+            color: #fff;
+            border-radius: 20px;
+            margin: 1%;
+            box-shadow: 0 0 20px #8F00FF;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gg2 {
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 74%;
+            float: left;
+            height: 1000px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            margin: 1%;
+            box-shadow: 0 0 20px #8F00FF;
+            text-shadow: 0 0 5px #FF00FF;
+        }
+
+        .gg3 {
+            width: 27.3333333333%;
+            float: left;
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px;
+            margin: 3%;
+            box-shadow: 0 0 20px #8F00FF;
+            height: 280px;
+        }
+
+        footer {
+            height: 100px;
+            clear: both;
+        }
+
+        p {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px auto;
+            width: 90%;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            line-height: 1.8;
+            box-shadow: 0 0 20px #8F00FF;
+            text-shadow: 0 0 5px #FF00FF;
+        }
+
+        button {
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-top: 38px;
+            --red: #ff004c;
+            font-size: 16px;
+            padding: 24px 32px; /* більший padding */
+            letter-spacing: 0.08em;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            border-radius: 0.6em;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            line-height: 1.4em;
+            border: 2px solid var(--red);
+            background: transparent;
+            color: var(--red);
+            box-shadow: inset 0 0 10px rgba(255, 0, 76, 0.4), 0 0 12px 3px rgba(255, 0, 76, 0.15);
+            width: 80%;
+            text-align: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+            button::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg, rgba(255, 0, 76, 0.2), rgba(255, 0, 76, 0.4));
+                z-index: -1;
+                opacity: 0;
+                transition: 0.5s ease-in-out;
+            }
+
+            button::after {
+                content: "";
+                position: absolute;
+                left: -4em;
+                width: 4em;
+                height: 100%;
+                top: 0;
+                transition: transform 0.4s ease-in-out;
+                background: linear-gradient( to right, transparent 1%, rgba(255, 0, 76, 0.15) 45%, rgba(255, 0, 76, 0.15) 55%, transparent 100% );
+                z-index: 2;
+            }
+
+            button:hover::after {
+                transform: translateX(18em);
+            }
+
+            button:hover::before {
+                opacity: 1;
+            }
+
+            button:hover {
+                color: #000;
+                background: rgba(255, 0, 76, 0.7);
+                box-shadow: inset 0 0 14px rgba(255, 0, 76, 0.6), 0 0 18px 4px rgba(255, 0, 76, 0.3);
+                transform: scale(1.05);
+            }
+
+        h2 {
+            margin: 20px;
+            font-family: 'Orbitron', cursive;
+            text-align: center;
+            color: yellow;
+        }
+
+        h1 {
+            font-family: 'Orbitron', cursive;
+            text-align: center;
+            color: yellow;
+        }
+
+        .tt3 {
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            font-family: cursive;
+            font-size: 30px;
+            border-radius: 20px;
+        }
+
+
+        img {
+            width: 200px;
+            border-radius: 5%;
+            box-shadow: 10px -10px 50px grey;
+            margin: 5%;
+            margin-left: 20%;
+        }
+        .gg-buttons {
+            clear: both;
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+            .gg-buttons a {
+                width: 40%;
+                text-decoration: none;
+            }
+
+            .gg-buttons button {
+                width: 100%;
+                margin: 0;
+            }
+    </style>
+
+
+
+
+</head>
+<body>
+    <header style=" word-spacing: 50px ">
+        <h1 style=";width: 100%; height: 150px; font-size:130px; ">
+            Mykhailo Tsyvinskyi
+        </h1>
+    </header>
+
+    </div>
+
+
+    <div class="gg1" style="background-image: url('photo_1.png');">
+        <h2 style="margin: 40px">My works</h2>
+        <a href="gf.html" target="_blank ">  <button style="margin-top:0;" class="pretty-button" role="button"><span class="text" "></span><span>multiplication</span></button></a>
+        <a href="JS9.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>rating</span></button></a>
+        <a href="JS103.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>emoji</span></button></a>
+        <a href="JS82.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>club</span></button></a>
+        <a href="GS7.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>guess the year</span></button></a>
+        <a href="JS15.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>compliments</span></button></a>
+        <a href="JS14.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>pyramid</span></button></a>
+        <a href="JS8.html" target="_blank ">  <button class="pretty-button" role="button"><span class="text"></span><span>bank</span></button></a>
+
+    </div>
+    <div class="gg2">
+        <h2>
+            About me, my work and my skills
+        </h2>
+        <p>
+            My name is Mykhailo, I'm 16 years old and I study in the 10th class.
+            I like working in Blender and making textures for 3D models.
+            Below you can see my photos and some of my works.
+            You can find more on my LinkedIn and ArtStation
+        </p>
+        <div class="gg3" style="background-image: url('photo1.png'); "></div>
+        <div class="gg3" style="background-image: url('photo2.png');"></div>
+        <div class="gg3" style="background-image: url('photo3.png');"></div>
+        <div class="gg-buttons">
+            <a href="chest.html" target="_blank"><button>chess board</button></a>
+            <a href="fibbonachi_1.html" target="_blank"><button>fibbonachi</button></a>
+            <a href="wolf.html" target="_blank"><button>picture</button></a>
+            <a href="load.html" target="_blank"><button>load</button></a>
+            <a href="circle.html" target="_blank"><button>circle</button></a>
+            <a href="#" target="_blank"><button>ArtStation</button></a>
+            <a href="#" target="_blank"><button>LinkedIn</button></a>
+        </div>
+
+
+    </div>
+    <footer>
+        <p>
+            📩 Contact me at
+            <a href="mailto:misha.tsyvik@gmail.com">misha.tsyvik@gmail.com</a> —
+            more works on
+            <a href="https://www.linkedin.com/in/mykhailo-tsyvinskiy-435847296/" target="_blank">LinkedIn</a>,
+            detailed projects on
+            <a href="https://www.artstation.com/mikhailotsuvinskiy" target="_blank">ArtStation</a>.
+        </p>
+
+    </footer>
+
+</body>
+</html>

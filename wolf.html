@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ну, погоди!</title>
+  <style>
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: radial-gradient(circle at 50% 35%, #1a1a1a 0%, #070707 55%, #000 100%);
+    }
+    canvas{
+      border-radius:16px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.65);
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+<canvas id="bunnyCanvas" width="700" height="700"></canvas>
+
+<script>
+const ctx = document.getElementById("bunnyCanvas").getContext("2d");
+
+/* ФОН */
+const bg = ctx.createLinearGradient(0,0,0,700);
+bg.addColorStop(0,"#1c1c1c");
+bg.addColorStop(1,"#000");
+ctx.fillStyle = bg;
+ctx.fillRect(0,0,700,700);
+    /* --- РОЖЕВА СОРОЧКА --- */
+    ctx.fillStyle = "#e89ab3";
+    ctx.beginPath();
+    ctx.ellipse(350, 520, 140, 170, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    /* КОМІР */
+    ctx.fillStyle = "#d97a9c";
+    ctx.beginPath();
+    ctx.moveTo(310, 450);
+    ctx.lineTo(350, 490);
+    ctx.lineTo(390, 450);
+    ctx.closePath();
+    ctx.fill();
+
+    /* ҐУДЗИКИ */
+    ctx.fillStyle = "#fff";
+    for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.arc(350, 500 + i * 35, 4, 0, Math.PI * 2);
+        ctx.fill();
+    }
+/* --- ШИЯ --- */
+ctx.fillStyle = "#666";
+ctx.beginPath();
+ctx.ellipse(350, 430, 35, 50, 0, 0, Math.PI*2);
+ctx.fill();
+
+/* --- ГОЛОВА --- */
+ctx.fillStyle = "#6b6b6b";
+ctx.beginPath();
+ctx.ellipse(350, 300, 95, 120, 0, 0, Math.PI*2);
+ctx.fill();
+
+/* --- МОРДА (витягнута) --- */
+ctx.fillStyle = "#7a7a7a";
+ctx.beginPath();
+ctx.ellipse(350, 335, 75, 55, 0, 0, Math.PI*2);
+ctx.fill();
+
+/* --- ВУХА --- */
+ctx.fillStyle = "#6b6b6b";
+ctx.beginPath();
+ctx.ellipse(280, 145, 22, 70, -0.35, 0, Math.PI*2);
+ctx.ellipse(420, 145, 22, 70, 0.35, 0, Math.PI*2);
+ctx.fill();
+
+/* --- ОЧІ --- */
+ctx.fillStyle = "#fff";
+ctx.beginPath();
+ctx.ellipse(320, 285, 18, 22, 0, 0, Math.PI*2);
+ctx.ellipse(380, 285, 18, 22, 0, 0, Math.PI*2);
+ctx.fill();
+
+/* ЗІНИЦІ (косий погляд) */
+ctx.fillStyle = "#111";
+ctx.beginPath();
+ctx.arc(326, 292, 8, 0, Math.PI*2);
+ctx.arc(386, 292, 8, 0, Math.PI*2);
+ctx.fill();
+
+/* --- БРОВИ --- */
+ctx.strokeStyle = "#222";
+ctx.lineWidth = 6;
+ctx.beginPath();
+ctx.moveTo(290, 255);
+ctx.lineTo(340, 250);
+ctx.moveTo(410, 255);
+ctx.lineTo(360, 250);
+ctx.stroke();
+
+/* --- НІС --- */
+ctx.fillStyle = "#333";
+ctx.beginPath();
+ctx.ellipse(350, 320, 32, 18, 0, 0, Math.PI*2);
+ctx.fill();
+
+/* --- РОТ --- */
+ctx.strokeStyle = "#111";
+ctx.lineWidth = 4;
+ctx.beginPath();
+ctx.moveTo(310, 350);
+ctx.quadraticCurveTo(350, 380, 420, 360);
+ctx.stroke();
+
+
+
+
+/* --- СИГАРЕТА --- */
+ctx.strokeStyle = "#ccc";
+ctx.lineWidth = 4;
+ctx.beginPath();
+ctx.moveTo(430, 360);
+ctx.lineTo(490, 380);
+ctx.stroke();
+
+ctx.fillStyle = "#ff3d00";
+ctx.beginPath();
+ctx.arc(490, 380, 5, 0, Math.PI*2);
+ctx.fill();
+
+/* ДИМ */
+ctx.strokeStyle = "rgba(255,255,255,0.35)";
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(490, 360);
+ctx.bezierCurveTo(520, 320, 470, 280, 510, 240);
+ctx.stroke();
+
+
+
+/* --- ТЕКСТ --- */
+ctx.fillStyle = "#fff";
+ctx.font = "bold 42px Arial";
+ctx.fillText("Ну, заєць, Ну постривай!", 100, 685);
+</script>
+</body>
+</html>
